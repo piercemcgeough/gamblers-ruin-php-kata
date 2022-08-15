@@ -46,8 +46,12 @@ P2 Odds = 66.66%
 Player 1's odds of winning are **33.33%** <br>
 Player 2's odds of winning are **66.66%**
 
-## Exercise
+## Exercise Part 1
 
 Create a script that will play a game where a coin is flipped. Each player will start with the same number of credits and is assigned heads or tails. If the coin lands on their side then that player will win a credit from their opponent. The game ends when one player is bankrupt.
 
 You should output the winner and how many flips it took to win the game.
+
+## Exercise Part 2
+
+Change the app to allow for both players to have different numbers of credits. Output each players odds of winning before the game gets played.
