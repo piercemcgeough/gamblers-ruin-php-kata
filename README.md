@@ -45,3 +45,9 @@ P2 Odds = 66.66%
 
 Player 1's odds of winning are **33.33%** <br>
 Player 2's odds of winning are **66.66%**
+
+## Exercise
+
+Create a script that will play a game where a coin is flipped. Each player is designated heads or tails. If the coin lands on their designated side then that player will win a credit from their opponent. The game ends when one player is bankrupt.
+
+You should output the winner and how many flips it took to win the game.
