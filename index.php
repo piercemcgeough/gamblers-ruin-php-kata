@@ -1,4 +1,6 @@
-<?php
+<?php require 'vendor/autoload.php';
+
+use App\Models\Coin;
 
 $flips = 0;
 $winner = null;
@@ -21,11 +23,10 @@ echo "Player 2 (" . $player2['name'] . ") odds of winning: " . number_format($p2
 
 while (true) {
 
-    $headsOrTails = ['heads', 'tails'];
-    $coinFlip = array_rand($headsOrTails);
+    $headsOrTails = Coin::flip();
     $flips++;
 
-    if ($headsOrTails[$coinFlip] == 'heads') {
+    if ($headsOrTails == Coin::Heads) {
         $player1['credits'] += 1;
         $player2['credits'] -= 1;
     } else {
