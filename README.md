@@ -10,7 +10,7 @@ The gambler's ruin is a concept in statistics. It is most commonly expressed as 
 
 <br>
 
-## Let's Expand on Point 3
+## Let's Use and Expand on Point 3
 
 In addition to inevitably going broke against an opponent with infinite wealth, the odds of winning against an opponent with the same finite bankroll is 50%.
 
