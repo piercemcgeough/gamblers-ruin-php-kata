@@ -23,14 +23,13 @@ class Player
 
     public function bankrupt(): bool
     {
-        return $this->credits == 0;
+        return $this->credits === 0;
     }
 
     public function oddsOfWinningAgainst(Player $opponent): float
     {
-        return number_format(
-            (1 - ($opponent->credits / ($this->credits + $opponent->credits))) * 100,
-            2
-        );
+        $calculator = new OddsCalculator($this->credits, $opponent->credits);
+
+        return number_format($calculator->calculate(), 2);
     }
 }
