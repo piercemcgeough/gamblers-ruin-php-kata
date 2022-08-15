@@ -6,15 +6,15 @@ use App\Models\Player;
 $flips = 0;
 $winner = null;
 
-$player1 = new Player('Raymond Reddington', 50);
+$player1 = new Player('Raymond Reddington', 550);
 $player2 = new Player('James Spader', 100);
 
-$p1OddsOfWinning = (1 - ($player2->credits / ($player1->credits + $player2->credits))) * 100;
-$p2OddsOfWinning = (1 - ($player1->credits / ($player1->credits + $player2->credits))) * 100;
+$player1OddsOfWinning = $player1->oddsOfWinningAgainst($player2);
+$player2OddsOfWinning = $player2->oddsOfWinningAgainst($player1);
 
 echo PHP_EOL;
-echo "Player 1 (" . $player1->name . ") odds of winning: " . number_format($p1OddsOfWinning, 2) . "%" . PHP_EOL;
-echo "Player 2 (" . $player2->name . ") odds of winning: " . number_format($p2OddsOfWinning, 2) . "%" . PHP_EOL;
+echo "Player 1 (" . $player1->name . ") odds of winning: " . $player1OddsOfWinning . "%" . PHP_EOL;
+echo "Player 2 (" . $player2->name . ") odds of winning: " . $player2OddsOfWinning . "%" . PHP_EOL;
 
 while (true) {
 
