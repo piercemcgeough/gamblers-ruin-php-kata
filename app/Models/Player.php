@@ -25,4 +25,12 @@ class Player
     {
         return $this->credits == 0;
     }
+
+    public function oddsOfWinningAgainst(Player $opponent): float
+    {
+        return number_format(
+            (1 - ($opponent->credits / ($this->credits + $opponent->credits))) * 100,
+            2
+        );
+    }
 }

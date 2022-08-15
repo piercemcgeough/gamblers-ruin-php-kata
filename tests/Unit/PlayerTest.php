@@ -53,4 +53,26 @@ class PlayerTest extends TestCase
 
         $this->assertTrue($player->bankrupt());
     }
+
+    /** @test */
+    public function player_oddsOfWinningAgainstOpponent()
+    {
+        $player1 = new Player(':Name:', 50);
+        $player2 = new Player(':Name:', 50);
+
+        $player1Odds = $player1->oddsOfWinningAgainst($player2);
+        $player2Odds = $player2->oddsOfWinningAgainst($player1);
+
+        $this->assertEquals(50, $player1Odds);
+        $this->assertEquals(50, $player2Odds);
+
+        $player3 = new Player(':Name:', 50);
+        $player4 = new Player(':Name:', 100);
+
+        $player3Odds = $player3->oddsOfWinningAgainst($player4);
+        $player4Odds = $player4->oddsOfWinningAgainst($player3);
+
+        $this->assertEquals(33.33, $player3Odds);
+        $this->assertEquals(66.67, $player4Odds);
+    }
 }
