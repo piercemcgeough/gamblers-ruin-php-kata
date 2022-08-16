@@ -14,7 +14,8 @@ We can calculate the odds of success in playing a fair game (such as a coin flip
 ```
 
 ```
-Player1 Credits = 100 / Player2 Credits = 200
+Player1 Credits = 100
+Player2 Credits = 200
 
 Player1 Odds = (1 - (200 / (100 +  200))) * 100
 Player1 Odds = (1 - (200 / 300)) * 100
