@@ -45,7 +45,7 @@ The winner and how many flips it took to win the game is announced at the end of
 
 Your job is to:
 
-1. Refactor the code in the `index.php` file. Create new classes, helper methods etc. Whatever you need to make the app more developer friendly.
+1. Refactor the code in the `index.php` file. Create new classes, helper methods etc. whatever you feel is necessary.
 2. Add tests to make sure any changes are accounted for.
 
 ## Exercise (Part 2)
