@@ -56,4 +56,21 @@ class GameTest extends TestCase
 
         $this->assertSame($player2, $game->winner());
     }
+
+    /** @test */
+    public function gameInfo_playersWithSameCredits_Returns50()
+    {
+        $player1 = new Player(':NAME1:', 50);
+        $player2 = new Player(':NAME2:', 50);
+
+        $game = new Game(
+            $player1,
+            $player2
+        );
+
+        $expected = ":NAME1: odds of winning: 50%" . PHP_EOL;
+        $expected .= ":NAME2: odds of winning: 50%";
+
+        $this->assertEquals($expected, $game->info());
+    }
 }

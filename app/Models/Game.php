@@ -4,13 +4,19 @@ namespace App\Models;
 
 class Game
 {
-    public ?Player $loser = null;
-    public ?Player $winner = null;
+    public int $flips = 0;
 
     public function __construct(
         public readonly Player $player1,
         public readonly Player $player2
     ) { }
+
+    public function info(): string
+    {
+        $output = $this->player1->name . " odds of winning: " . $this->player1->oddsOfWinningAgainst($this->player2) . "%" . PHP_EOL;
+        $output .= $this->player2->name . " odds of winning: " . $this->player2->oddsOfWinningAgainst($this->player1) . "%";
+        return $output;
+    }
 
     public function winner(): Player|null
     {
