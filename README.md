@@ -56,3 +56,6 @@ Change the app to allow for both players to have different numbers of credits. O
 ## Note
 
 Unlike most other katas, due to it's nature this code will give you different results every time it is run.
+
+Inspiration for this kata comes from
+[Laracasts - Jeffrey's Larabits - Episode 26](https://laracasts.com/series/jeffreys-larabits/episodes/26)
