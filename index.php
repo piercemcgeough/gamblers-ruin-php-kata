@@ -6,7 +6,7 @@ use App\Models\Player;
 $flips = 0;
 $winner = null;
 
-$player1 = new Player('Raymond Reddington', 550);
+$player1 = new Player('Raymond Reddington', 100);
 $player2 = new Player('James Spader', 100);
 
 $player1OddsOfWinning = $player1->oddsOfWinningAgainst($player2);

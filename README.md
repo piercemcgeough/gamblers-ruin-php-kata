@@ -1,57 +1,62 @@
 # Gambler's Ruin
 
-The gambler's ruin is a concept in statistics. It is most commonly expressed as follows:
+The gambler's ruin is a concept in statistics. It is had a number of expressions but we will focus on the following:
 
-1. A gambler playing a game with negative expected value will eventually go broke, regardless of their betting system.
+> A persistent gambler with finite wealth, playing a fair game (that is, each bet has expected value of zero to both sides) will eventually and inevitably go broke against an opponent with infinite wealth."
 
-2. A persistent gambler who raises his or her bet to a fixed fraction of the gambler's bankroll after a win, but does not reduce it after a loss, will eventually and inevitably go broke, even if each bet has a positive expected value.
+In addition to inevitably going broke against an opponent with infinite wealth, the odds of winning against an opponent with the same finite number of credits is 50%.
 
-3. Another statement of the concept is that a persistent gambler with finite wealth, playing a fair game (that is, each bet has expected value of zero to both sides) will eventually and inevitably go broke against an opponent with infinite wealth.
+We can calculate the odds of success in playing a fair game (such as a coin flip) with any finite values by using the following formula:
 
-<br>
-
-## Let's Use and Expand on Point 3
-
-In addition to inevitably going broke against an opponent with infinite wealth, the odds of winning against an opponent with the same finite bankroll is 50%.
-
-In fact, we can calculate the odds of success in playing a fair game with any finite values by using the following formula:
-
-**P1 odds of winning:** <br>
+**A players odds of winning:** <br>
 ```
-(1 - (P2 Credits / (P1 Credits +  P2 Credits))) * 100
-```
-
-**P2 odds of winning:** <br>
-```
-(1 - (P1 Credits / (P1 Credits +  P2 Credits))) * 100
+(1 - (OpponentsCredits / (PlayersCredits + OpponentsCredits))) * 100
 ```
 
 ```
-P1 Credits = 100
-P2 Credits = 200
+Player1 Credits = 100
+Player2 Credits = 200
 
-P1 Odds = (1 - (200 / (100 +  200))) * 100
-P1 Odds = (1 - (200 / 300)) * 100
-P1 Odds = (1 - (0.6666)) * 100
-P1 Odds = 0.3333 * 100
-P1 Odds = 33.33%
+Player1 Odds = (1 - (200 / (100 + 200))) * 100
+Player1 Odds = (1 - (200 / 300)) * 100
+Player1 Odds = (1 - (0.6666)) * 100
+Player1 Odds = 0.3333 * 100
+Player1 Odds = 33.33%
 
-P2 Odds = (1 - (100 / (100 +  200))) * 100
-P2 Odds = (1 - (100 / 300)) * 100
-P2 Odds = (1 - (0.3333)) * 100
-P2 Odds = 0.6666 * 100
-P2 Odds = 66.66%
+Player2 Odds = (1 - (100 / (100 + 200))) * 100
+Player2 Odds = (1 - (100 / 300)) * 100
+Player2 Odds = (1 - (0.3333)) * 100
+Player2 Odds = 0.6666 * 100
+Player2 Odds = 66.66%
 ```
 
 Player 1's odds of winning are **33.33%** <br>
 Player 2's odds of winning are **66.66%**
 
-## Exercise Part 1
+<hr>
 
-Create a script that will play a game where a coin is flipped. Each player will start with the same number of credits and is assigned heads or tails. If the coin lands on their side then that player will win a credit from their opponent. The game ends when one player is bankrupt.
+## Exercise
 
-You should output the winner and how many flips it took to win the game.
+This repository includes the initial setup and working solution in `index.php` for this kata.
 
-## Exercise Part 2
+The app that will play a game where a coin is flipped. Each player will start with the same number of credits and is assigned heads or tails. If the coin lands on their side then that player will win a credit from their opponent. The game ends when one player is bankrupt.
 
-Change the app to allow for both players to have different numbers of credits. Output each players odds of winning before the game gets played.
+The winner and how many flips it took to win the game is announced at the end of the game.
+
+Your job is to:
+
+1. Refactor the code in the `index.php` file. Create new classes, helper methods etc. whatever you feel is necessary.
+2. Add tests to make sure any changes are accounted for.
+
+## Exercise (Part 2)
+
+1. Change the app to allow for both players to have different numbers of credits.
+2. Output each players' odds of winning before the game gets played.
+
+
+## Note
+
+Unlike most other katas, due to it's nature this code will give you different results every time it is run.
+
+Inspiration for this kata comes from
+[Laracasts - Jeffrey's Larabits - Episode 26](https://laracasts.com/series/jeffreys-larabits/episodes/26)
