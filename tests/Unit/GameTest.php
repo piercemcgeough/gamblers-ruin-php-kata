@@ -30,14 +30,30 @@ class GameTest extends TestCase
     }
 
     /** @test */
-    public function game_playerWhoBankruptsOpponent_isWinner()
+    public function gameGetWinner_WithNoWinner_ReturnsNull()
     {
-        $player1 = new Player(':NAME:', 1);
+        $player1 = new Player(':NAME:', 50);
         $player2 = new Player(':NAME:', 50);
 
         $game = new Game(
             $player1,
             $player2
         );
+
+        $this->assertNull($game->winner());
+    }
+
+    /** @test */
+    public function gameGetWinner_WithWinner_ReturnsPlayer()
+    {
+        $player1 = new Player(':NAME:', 0);
+        $player2 = new Player(':NAME:', 50);
+
+        $game = new Game(
+            $player1,
+            $player2
+        );
+
+        $this->assertSame($player2, $game->winner());
     }
 }
