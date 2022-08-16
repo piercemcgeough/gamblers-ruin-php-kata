@@ -15,7 +15,7 @@ class OddsCalculatorTest extends TestCase
     }
 
     /** @test */
-    public function calculator_withSameCredits_returns50()
+    public function calculateOdds_withSameCredits_returns50()
     {
         $calculator = new OddsCalculator(50, 50);
 
@@ -23,7 +23,7 @@ class OddsCalculatorTest extends TestCase
     }
 
     /** @test */
-    public function calculator_withDoubleCredits_returns6667()
+    public function calculateOdds_withDoubleCredits_returns6667()
     {
         $calculator = new OddsCalculator(100, 50);
 

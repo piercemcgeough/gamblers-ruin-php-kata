@@ -14,7 +14,7 @@ class CoinTest extends TestCase
     }
 
     /** @test */
-    public function aCoin_HasHeadsAndTails()
+    public function coin_HasHeadsAndTails()
     {
         $heads = Coin::Heads;
         $tails = Coin::Tails;
@@ -27,7 +27,7 @@ class CoinTest extends TestCase
     }
 
     /** @test */
-    public function aFlippedCoin_ReturnsHeadsOrTails()
+    public function coinFlipped_ReturnsHeadsOrTails()
     {
         $result = Coin::Flip();
 

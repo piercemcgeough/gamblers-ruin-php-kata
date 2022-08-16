@@ -15,7 +15,7 @@ class GameTest extends TestCase
     }
 
     /** @test */
-    public function game_requiresPlayers()
+    public function gameCreated_withPlayers_returnsNoErrors()
     {
         $player1 = new Player(':NAME:', 50);
         $player2 = new Player(':NAME:', 50);
