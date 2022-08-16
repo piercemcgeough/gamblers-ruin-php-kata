@@ -50,7 +50,8 @@ Your job is to:
 
 ## Exercise (Part 2)
 
-Change the app to allow for both players to have different numbers of credits. Output each players' odds of winning before the game gets played.
+1. Change the app to allow for both players to have different numbers of credits.
+2. Output each players' odds of winning before the game gets played.
 
 
 ## Note
