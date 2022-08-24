@@ -1,25 +1,23 @@
 <?php require 'vendor/autoload.php';
 
 use App\Models\Coin;
+use App\Models\Game;
 use App\Models\Player;
 
-$flips = 0;
 $winner = null;
 
 $player1 = new Player('Raymond Reddington', 100);
 $player2 = new Player('James Spader', 100);
 
-$player1OddsOfWinning = $player1->oddsOfWinningAgainst($player2);
-$player2OddsOfWinning = $player2->oddsOfWinningAgainst($player1);
+$game = new Game($player1, $player2);
 
 echo PHP_EOL;
-echo "Player 1 (" . $player1->name . ") odds of winning: " . $player1OddsOfWinning . "%" . PHP_EOL;
-echo "Player 2 (" . $player2->name . ") odds of winning: " . $player2OddsOfWinning . "%" . PHP_EOL;
+echo $game->info() . PHP_EOL;
 
 while (true) {
 
     $headsOrTails = Coin::flip();
-    $flips++;
+    $game->incrementFlips();
 
     if ($headsOrTails == Coin::Heads) {
         $player1->credits += 1;
@@ -43,6 +41,6 @@ while (true) {
 if (isset($winner)) {
     echo PHP_EOL;
     echo "Winner: " . $winner->name . PHP_EOL;
-    echo "Flips: " . $flips;
+    echo "Flips: " . $game->flips();
     echo PHP_EOL . PHP_EOL;
 }

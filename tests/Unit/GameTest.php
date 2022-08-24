@@ -58,7 +58,7 @@ class GameTest extends TestCase
     }
 
     /** @test */
-    public function gameInfo_playersWithSameCredits_Returns50()
+    public function gameInfo_playersWithSameCredits_Returns50Percent()
     {
         $player1 = new Player(':NAME1:', 50);
         $player2 = new Player(':NAME2:', 50);

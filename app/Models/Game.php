@@ -4,7 +4,7 @@ namespace App\Models;
 
 class Game
 {
-    public int $flips = 0;
+    private int $flips = 0;
 
     public function __construct(
         public readonly Player $player1,
@@ -16,6 +16,16 @@ class Game
         $output = $this->player1->name . " odds of winning: " . $this->player1->oddsOfWinningAgainst($this->player2) . "%" . PHP_EOL;
         $output .= $this->player2->name . " odds of winning: " . $this->player2->oddsOfWinningAgainst($this->player1) . "%";
         return $output;
+    }
+
+    public function incrementFlips()
+    {
+        $this->flips++;
+    }
+
+    public function flips()
+    {
+        return $this->flips;
     }
 
     public function winner(): Player|null
