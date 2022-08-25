@@ -6,13 +6,12 @@ use App\Models\Player;
 
 $winner = null;
 
-$player1 = new Player('Raymond Reddington', 100);
-$player2 = new Player('James Spader', 100);
+$game = new Game(
+    new Player('Raymond Reddington', 100),
+    new Player('James Spader', 100)
+);
 
-$game = new Game($player1, $player2);
-
-echo PHP_EOL;
-echo $game->info() . PHP_EOL;
+$game->displayStartInfo();
 
 while (true) {
 
@@ -38,6 +37,7 @@ while (true) {
     }
 }
 
+// $game->displayEndInfo();
 if (isset($winner)) {
     echo PHP_EOL;
     echo "Winner: " . $winner->name . PHP_EOL;

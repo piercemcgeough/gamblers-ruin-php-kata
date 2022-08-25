@@ -18,6 +18,11 @@ class Game
         return $output;
     }
 
+    public function displayStartInfo(): void
+    {
+        echo $this->info();
+    }
+
     public function incrementFlips()
     {
         $this->flips++;

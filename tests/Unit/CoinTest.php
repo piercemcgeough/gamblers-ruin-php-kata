@@ -27,6 +27,25 @@ class CoinTest extends TestCase
     }
 
     /** @test */
+    public function coinTossed_LandingOnHeads_ReturnsHeads()
+    {
+        $coin = $this->createMock(Coin::class);
+        $coin->method('toss')->willReturn(Coin::Heads);
+
+        $this->assertEquals(Coin::Heads, $coin->toss());
+    }
+
+
+    /** @test */
+    public function coinTossed_LandingOnTails_ReturnsTails()
+    {
+        $coin = $this->createMock(Coin::class);
+        $coin->method('toss')->willReturn(Coin::Tails);
+
+        $this->assertEquals(Coin::Tails, $coin->toss());
+    }
+
+    /** @test */
     public function coinFlipped_ReturnsHeadsOrTails()
     {
         $result = Coin::Flip();

@@ -73,4 +73,50 @@ class GameTest extends TestCase
 
         $this->assertEquals($expected, $game->info());
     }
+
+    /** @test */
+    public function displayStartInfo_playersWithSameCredits_Outputs50Percent()
+    {
+        $player1 = new Player(':NAME1:', 50);
+        $player2 = new Player(':NAME2:', 50);
+
+        $game = new Game(
+            $player1,
+            $player2
+        );
+
+        $expected = ":NAME1: odds of winning: 50%" . PHP_EOL;
+        $expected .= ":NAME2: odds of winning: 50%";
+
+        $this->expectOutputString($expected);
+        $game->displayStartInfo();
+    }
+
+    /** @test */
+    public function displayEndInfo_playersWithSameCredits_Outputs50Percent()
+    {
+        $player1 = new Player(':NAME1:', 50);
+        $player2 = new Player(':NAME2:', 50);
+
+        $game = $this->createMock(Game::class);
+
+
+        if (isset($winner)) {
+            echo PHP_EOL;
+            echo "Winner: " . $winner->name . PHP_EOL;
+            echo "Flips: " . $game->flips();
+            echo PHP_EOL . PHP_EOL;
+        }
+
+
+
+
+
+
+        $expected = ":NAME1: odds of winning: 50%" . PHP_EOL;
+        $expected .= ":NAME2: odds of winning: 50%";
+
+        $this->expectOutputString($expected);
+        $game->displayStartInfo();
+    }
 }
