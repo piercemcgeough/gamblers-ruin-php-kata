@@ -10,5 +10,6 @@ $game = new Game(
 
 $game->displayStartInfo();
 echo "\n\n";
+$game->play();
 $game->displayEndInfo();
 echo "\n\n";
