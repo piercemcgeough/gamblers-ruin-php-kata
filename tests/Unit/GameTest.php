@@ -30,7 +30,7 @@ class GameTest extends TestCase
     }
 
     /** @test */
-    public function gameGetWinner_WithNoWinner_ReturnsNull()
+    public function gameGetWinner_withNoWinner_returnsNull()
     {
         $player1 = new Player(':NAME:', 50);
         $player2 = new Player(':NAME:', 50);
@@ -44,7 +44,7 @@ class GameTest extends TestCase
     }
 
     /** @test */
-    public function gameGetWinner_WithWinner_ReturnsPlayer()
+    public function gameGetWinner_withWinner_returnsPlayer()
     {
         $player1 = new Player(':NAME:', 0);
         $player2 = new Player(':NAME:', 50);
@@ -58,7 +58,7 @@ class GameTest extends TestCase
     }
 
     /** @test */
-    public function gameInfo_playersWithSameCredits_Returns50Percent()
+    public function displayStartInfo_playersWithSameCredits_outputsNameAnd50Percent()
     {
         $player1 = new Player(':NAME1:', 50);
         $player2 = new Player(':NAME2:', 50);
@@ -72,51 +72,29 @@ class GameTest extends TestCase
         $expected .= ":NAME2: odds of winning: 50%";
 
         $this->assertEquals($expected, $game->info());
+
+        $this->expectOutputString($expected);
+        $game->displayStartInfo();
     }
 
     /** @test */
-    public function displayStartInfo_playersWithSameCredits_Outputs50Percent()
+    public function displayEndInfo()
     {
-        $player1 = new Player(':NAME1:', 50);
+        $player1 = new Player(':NAME1:', 0);
         $player2 = new Player(':NAME2:', 50);
 
         $game = new Game(
             $player1,
             $player2
         );
+        $game->play();
 
-        $expected = ":NAME1: odds of winning: 50%" . PHP_EOL;
-        $expected .= ":NAME2: odds of winning: 50%";
+        $expected = "Winner: :NAME2:" . PHP_EOL;
+        $expected .= "Flips: 0";
 
-        $this->expectOutputString($expected);
-        $game->displayStartInfo();
-    }
-
-    /** @test */
-    public function displayEndInfo_playersWithSameCredits_Outputs50Percent()
-    {
-        $player1 = new Player(':NAME1:', 50);
-        $player2 = new Player(':NAME2:', 50);
-
-        $game = $this->createMock(Game::class);
-
-
-        if (isset($winner)) {
-            echo PHP_EOL;
-            echo "Winner: " . $winner->name . PHP_EOL;
-            echo "Flips: " . $game->flips();
-            echo PHP_EOL . PHP_EOL;
-        }
-
-
-
-
-
-
-        $expected = ":NAME1: odds of winning: 50%" . PHP_EOL;
-        $expected .= ":NAME2: odds of winning: 50%";
+        $this->assertEquals($expected, $game->endInfo());
 
         $this->expectOutputString($expected);
-        $game->displayStartInfo();
+        $game->displayEndInfo();
     }
 }
